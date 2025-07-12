@@ -17,6 +17,7 @@ import {
 } from "@/components/ui/sidebar"
 import { BarChart3, Package, Settings, User, LogOut, Home } from "lucide-react"
 import { useToast } from "@/hooks/use-toast"
+import { ThemeToggle } from "./theme-toggle"
 
 const menuItems = [
   {
@@ -75,7 +76,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
           </SidebarContent>
           <SidebarFooter>
             <SidebarMenu>
-              <SidebarMenuItem>
+            <SidebarMenuItem>
                 <SidebarMenuButton onClick={handleLogout}>
                   <LogOut />
                   <span>Logout</span>
@@ -85,10 +86,13 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
           </SidebarFooter>
         </Sidebar>
         <main className="flex-1 flex flex-col">
-          <header className="border-b bg-white px-6 py-4">
-            <div className="flex items-center gap-4">
-              <SidebarTrigger />
-              <h1 className="text-2xl font-semibold">Products Dashboard</h1>
+          <header className="border-b bg-white dark:bg-gray-950 px-6 py-4">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-4">
+                <SidebarTrigger />
+                <h1 className="text-2xl font-semibold">Products Dashboard</h1>
+              </div>
+              <ThemeToggle />
             </div>
           </header>
           <div className="flex-1 p-6">{children}</div>
